@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/Monthly-Finantial-Performance-Keyur.html"
+    }
+  ]
+}
