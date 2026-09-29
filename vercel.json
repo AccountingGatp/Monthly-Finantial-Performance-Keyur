@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/Monthly-Finantial-Performance.html"
+      "destination": "/Monthly Financial Performance.html"
     }
   ]
 }
