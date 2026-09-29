@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -262,6 +262,48 @@ summary{padding:14px 18px;font-size:15px}
 @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) .logo-img{background:#fff;padding:5px 10px;border-radius:10px;height:46px}:root:where(:not([data-theme="light"])) .logo-img.sm{height:32px;padding:3px 8px}}
 .siteft .wrap{gap:14px}
 .intro h2{font-size:26px;margin-bottom:4px}.intro p{font-size:16px;margin:0}
+
+/* ===== dark-first colourful theme ===== */
+:root[data-theme="dark"]{
+--bg:#080d1c;--surface:#111a30;--surface2:#172340;--line:#25335a;--ink:#f3f6ff;--ink2:#b7c3e2;--muted:#8391b8;--hover:rgba(96,165,250,.16);
+--brand:#ffffff;--brand-ink:#0b1226;--tint-good:rgba(52,211,153,.16);--tint-neg:rgba(248,113,113,.16);--tint-warn:rgba(251,191,36,.16);
+--good:#4ade80;--bad:#fb7185;--warn:#fbbf24;--neg:#fb7185;
+--s1:#4c9dff;--s2:#ff7a45;--s3:#22d3a5;--s7:#a58bff;--shadow:0 8px 28px rgba(0,0,0,.35)}
+:root[data-theme="dark"] body{background:radial-gradient(900px 480px at 0% -8%,rgba(59,130,246,.22),transparent 60%),radial-gradient(800px 460px at 100% 0%,rgba(20,184,166,.16),transparent 60%),radial-gradient(700px 500px at 50% 110%,rgba(139,92,246,.14),transparent 60%),var(--bg)}
+:root[data-theme="dark"] .topbar,:root[data-theme="dark"] .dashhead,:root[data-theme="dark"] .siteft{background:rgba(13,20,38,.82);backdrop-filter:blur(10px)}
+.topbar{border-bottom:1px solid var(--line)}
+/* accent colours per KPI (both themes) */
+.kpi{--ka:#4c9dff;border-top:3px solid var(--ka);background:linear-gradient(180deg,color-mix(in srgb,var(--ka) 13%,var(--surface)),var(--surface) 75%)}
+.kpi.hl{border-top-width:4px}
+.kpi .k-l{color:color-mix(in srgb,var(--ka) 78%,var(--ink))}
+.kpi.hl .k-l{color:var(--ka)}
+.k-revenue{--ka:#4c9dff}.k-grossProfit{--ka:#22d3a5}.k-opex{--ka:#ffb02e}.k-netIncome{--ka:#4ade80}
+.k-grossRevenue{--ka:#7aa7ff}.k-adjustment{--ka:#f472b6}.k-cogs{--ka:#ff7a45}.k-gm{--ka:#22d3ee}.k-netMargin{--ka:#a58bff}
+.kpi.star{background:linear-gradient(180deg,color-mix(in srgb,var(--ka) 22%,var(--surface)),var(--surface) 80%);box-shadow:0 8px 30px color-mix(in srgb,var(--ka) 22%,transparent)}
+.kpi:hover{box-shadow:0 10px 30px color-mix(in srgb,var(--ka) 26%,transparent)}
+/* hero banners */
+.ent.shan .hero{background:linear-gradient(120deg,#3a2fb8 0%,#2563eb 55%,#06b6d4 115%)}
+.ent.dur .hero{background:linear-gradient(120deg,#0f766e 0%,#0e8fa0 50%,#2563eb 115%)}
+.hero{box-shadow:0 14px 44px rgba(37,99,235,.28)}
+.ent.dur .hero{box-shadow:0 14px 44px rgba(13,148,136,.28)}
+/* controls */
+.seg button[aria-pressed="true"]{background:linear-gradient(135deg,#2f7bea,#6d5df6);color:#fff}
+.btn.primary{background:linear-gradient(135deg,#2f7bea,#6d5df6);color:#fff;border-color:transparent}
+.btn.primary:disabled{opacity:.4}
+.card{background:linear-gradient(180deg,color-mix(in srgb,var(--s1) 5%,var(--surface)),var(--surface))}
+ul.ins li{background:linear-gradient(90deg,color-mix(in srgb,var(--s1) 9%,var(--surface)),var(--surface) 60%)}
+ul.ins.conf li{background:linear-gradient(90deg,color-mix(in srgb,var(--warn) 11%,var(--surface)),var(--surface) 60%)}
+ul.ins li::before{box-shadow:0 0 0 4px color-mix(in srgb,var(--s1) 22%,transparent)}
+ul.ins.conf li::before{box-shadow:0 0 0 4px color-mix(in srgb,var(--warn) 22%,transparent)}
+.sec-h h3{position:relative;padding-left:14px}
+.sec-h h3::before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:4px;border-radius:4px;background:linear-gradient(180deg,var(--s1),var(--s7))}
+.steps3 b{background:linear-gradient(135deg,#2f7bea,#6d5df6);color:#fff}
+.drop.shan .tag{background:linear-gradient(135deg,#3a2fb8,#2563eb)}.drop.dur .tag{background:linear-gradient(135deg,#0f766e,#0e8fa0)}
+.drop{border-color:color-mix(in srgb,var(--s1) 40%,var(--line))}
+.stat.ok{background:var(--tint-good);color:var(--good)}
+.t5 .bar div{background:linear-gradient(90deg,var(--s3),var(--s1))}
+td.best{background:var(--tint-good)}td.hi{background:var(--tint-warn)}td.neg{background:var(--tint-neg)}
+:root[data-theme="light"] .kpi .k-l,:root[data-theme="light"] .kpi.hl .k-l{color:color-mix(in srgb,var(--ka) 58%,#0d1220)}
 </style>
 </head>
 <body>
@@ -799,7 +841,7 @@ function kpiCards(E,mode){
     if(K.k==='revenue'&&E.othRevL.length)sub='Total income incl. billings & refunds';
     if(K.k==='grossRevenue'&&!E.hasAdjustment)sub='Equals net revenue (no adjustment)';
     if(K.k==='cogs'&&E.hasSplit)sub=`Drug ${$f(cur.drugCogs)} · Non-drug ${$f(cur.nonDrugCogs)}`;
-    cards[K.k]=`<div class="kpi ${HEADLINE.includes(K.k)?'hl':''} ${K.k==='netIncome'?'star':''}" title="${esc(K.tip)}"><div class="k-l">${K.l}</div><div class="k-v ${val<0?'neg':''}">${valTxt}</div><div class="k-d ${tone}">${esc(d)}</div>${sub?`<div class="k-s">${esc(sub)}</div>`:''}</div>`;
+    cards[K.k]=`<div class="kpi k-${K.k} ${HEADLINE.includes(K.k)?'hl':''} ${K.k==='netIncome'?'star':''}" title="${esc(K.tip)}"><div class="k-l">${K.l}</div><div class="k-v ${val<0?'neg':''}">${valTxt}</div><div class="k-d ${tone}">${esc(d)}</div>${sub?`<div class="k-s">${esc(sub)}</div>`:''}</div>`;
   });
   return `<div class="kgrp-t">Headline numbers</div><div class="kpis big">${HEADLINE.map(k=>cards[k]).join('')}</div><div class="kgrp-t">Behind the numbers</div><div class="kpis">${SUPPORT.map(k=>cards[k]).join('')}</div>`;
 }
